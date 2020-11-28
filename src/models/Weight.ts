@@ -5,3 +5,8 @@ export interface IWeight {
   units: Unit
   WeightUnits: number
 }
+
+export interface ICreateWeight {
+  value: number
+  units: Unit
+}

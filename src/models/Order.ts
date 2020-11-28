@@ -4,7 +4,7 @@ import { IDimensions } from "./Dimensions"
 import { IInsuranceOptions } from "./InsuranceOptions"
 import { IInternationalOptions } from "./InternationalOptions"
 import { IPaginatedResult } from "./Pagination"
-import { IWeight } from "./Weight"
+import { IWeight, ICreateWeight } from "./Weight"
 
 export type OrderStatus =
   | "awaiting_payment"
@@ -83,7 +83,7 @@ export interface ICreateOrUpdateOrder {
   packageCode?: string
   confirmation?: string
   shipDate?: string
-  weight?: IWeight
+  weight?: ICreateWeight
   dimensions?: IDimensions
   insuranceOptions?: IInsuranceOptions
   internationalOptions?: IInternationalOptions
