@@ -13,8 +13,7 @@ export type OrderStatus =
   | "on_hold"
   | "cancelled"
 
-export interface IOrder {
-  orderId: number
+export interface ICreateOrUpdateOrder {
   orderNumber: string
   orderKey: string
   orderDate: string
@@ -45,7 +44,7 @@ export interface IOrder {
   confirmation: string
   shipDate: string
   holdUntilDate: string
-  weight: IWeight
+  weight: ICreateWeight
   dimensions: IDimensions
   insuranceOptions: IInsuranceOptions
   internationalOptions: IInternationalOptions
@@ -57,38 +56,9 @@ export interface IOrder {
   labelMessages?: string
 }
 
-export interface ICreateOrUpdateOrder {
-  orderNumber: string
-  orderKey?: string
-  orderDate: string
-  paymentDate?: string
-  shipByDate?: string
-  orderStatus: OrderStatus
-  customerUsername?: string
-  customerEmail?: string
-  billTo: IAddress
-  shipTo: IAddress
-  items?: Array<Omit<IOrderItem, "orderItemId" | "createDate" | "modifyDate">>
-  amountPaid?: number
-  taxAmount?: number
-  shippingAmount?: number
-  customerNotes?: string
-  internalNotes?: string
-  gift?: boolean
-  giftMessage?: string
-  paymentMethod?: string
-  requestedShippingService?: string
-  carrierCode?: string
-  serviceCode?: string
-  packageCode?: string
-  confirmation?: string
-  shipDate?: string
-  weight?: ICreateWeight
-  dimensions?: IDimensions
-  insuranceOptions?: IInsuranceOptions
-  internationalOptions?: IInternationalOptions
-  advancedOptions?: IAdvancedOptions
-  tagIds?: number[]
+export interface IOrder extends ICreateOrUpdateOrder {
+  orderId: number
+  weight: IWeight
 }
 
 export interface IOrderItem {
